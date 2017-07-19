@@ -22,9 +22,26 @@ namespace AutomatedTeller.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.TheMessage = "If you need help?";
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Contact(string message)
+        {
+            ViewBag.TheMessage = "If you need help?";
+        }
+
+        public ActionResult Serial(string letterCase)
+        {
+            var serial = "ASPNETMVC5ATM1";
+
+            if (letterCase == "lower")
+            {
+                return Content(serial.ToLower());
+            }
+            return Content(serial);
         }
     }
 }
